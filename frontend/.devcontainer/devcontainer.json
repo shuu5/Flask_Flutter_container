@@ -1,0 +1,22 @@
+{
+  "name": "frontend_flutter",
+  "dockerComposeFile": "../../docker-compose.yml",
+  "service": "frontend-container",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.cwd": "/workspaces/frontend"
+  },
+  "extensions": [
+    "Dart-Code.dart-code",
+    "Dart-Code.flutter",
+    "pAIrprog.ui-sketcher"
+  ],
+  "runArgs": [
+    
+  ],
+  "forwardPorts": [3000],
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/frontend",
+  "postCreateCommand": "echo 'Container is ready!'",
+  "shutdownAction": "stopCompose"
+}

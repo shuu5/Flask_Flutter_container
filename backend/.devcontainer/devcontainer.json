@@ -1,0 +1,23 @@
+{
+    "name": "backend_python",
+    "dockerComposeFile": "../../docker-compose.yml",
+    "service": "backend-container",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.cwd": "/workspaces/backend/src"
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "anysphere.pyright"
+    ],
+    "runArgs": [
+        "--gpus", "all",
+        "--shm-size", "12gb"
+    ],
+    "remoteUser": "vscode",
+    "forwardPorts": [8000],
+    "workspaceFolder": "/workspaces/backend",
+    "postCreateCommand": "echo 'Container is ready!'",
+    "shutdownAction": "stopCompose"
+}

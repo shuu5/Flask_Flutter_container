@@ -1,0 +1,35 @@
+services:
+  backend-container:
+    build:
+      context: ./backend
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ./backend:/workspaces/backend
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    command: tail -f /dev/null
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  frontend-container:
+    build:
+      context: ./frontend
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ./frontend:/workspaces/frontend
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    command: tail -f /dev/null
+
+networks:
+  default:
+    name: app-network
